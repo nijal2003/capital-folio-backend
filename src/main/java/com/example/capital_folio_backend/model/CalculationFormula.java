@@ -20,43 +20,4 @@ public class CalculationFormula {
 
     private String outputKey;
 
-    public Long getId() {
-        return id;
-    }
-
-    public Calculator getCalculator() {
-        return calculator;
-    }
-
-    public String getFormulaType() {
-        return formulaType;
-    }
-
-    public String getFormula() {
-        return formula;
-    }
-
-    public String getOutputKey() {
-        return outputKey;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setCalculator(Calculator calculator) {
-        this.calculator = calculator;
-    }
-
-    public void setFormulaType(String formulaType) {
-        this.formulaType = formulaType;
-    }
-
-    public void setFormula(String formula) {
-        this.formula = formula;
-    }
-
-    public void setOutputKey(String outputKey) {
-        this.outputKey = outputKey;
-    }
 }
