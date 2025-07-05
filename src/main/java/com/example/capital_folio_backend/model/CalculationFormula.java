@@ -1,62 +1,33 @@
-package com.example.capitalfoliobackend.model;
+package com.example.capital_folio_backend.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.UUID;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "calculation_formulas")
 public class CalculationFormula {
     @Id
-    private Long id;
+    @Column(name = "id")
+    private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "calculator_id")
     private Calculator calculator;
 
+    @Column(name = "formula_type")
     private String formulaType;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(name = "formula", columnDefinition = "TEXT")
     private String formula;
 
+    @Column(name = "output_key")
     private String outputKey;
 
-    public Long getId() {
-        return id;
-    }
-
-    public Calculator getCalculator() {
-        return calculator;
-    }
-
-    public String getFormulaType() {
-        return formulaType;
-    }
-
-    public String getFormula() {
-        return formula;
-    }
-
-    public String getOutputKey() {
-        return outputKey;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setCalculator(Calculator calculator) {
-        this.calculator = calculator;
-    }
-
-    public void setFormulaType(String formulaType) {
-        this.formulaType = formulaType;
-    }
-
-    public void setFormula(String formula) {
-        this.formula = formula;
-    }
-
-    public void setOutputKey(String outputKey) {
-        this.outputKey = outputKey;
-    }
 }

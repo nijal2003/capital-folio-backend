@@ -1,7 +1,7 @@
-package com.example.capitalfoliobackend.controller;
+package com.example.capital_folio_backend.controller;
 
-import com.example.capitalfoliobackend.model.Calculator;
-import com.example.capitalfoliobackend.service.CalculatorService;
+import com.example.capital_folio_backend.model.Calculator;
+import com.example.capital_folio_backend.service.CalculatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +12,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/calculators")
 public class CalculatorController {
+
     @Autowired
     private CalculatorService calculatorService;
 
@@ -21,7 +22,7 @@ public class CalculatorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Calculator> getCalculatorById(@PathVariable Long id) {
+    public ResponseEntity<Calculator> getCalculatorById(@PathVariable UUID id) {
         return calculatorService.getCalculatorById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -33,20 +34,20 @@ public class CalculatorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Calculator> updateCalculator(@PathVariable Long id, @RequestBody Calculator calculatorDetails) {
+    public ResponseEntity<Calculator> updateCalculator(@PathVariable UUID id, @RequestBody Calculator calculatorDetails) {
         return calculatorService.getCalculatorById(id).map(calculator -> {
             calculator.setSlug(calculatorDetails.getSlug());
             calculator.setTitle(calculatorDetails.getTitle());
             calculator.setDescription(calculatorDetails.getDescription());
             calculator.setCategory(calculatorDetails.getCategory());
-            calculator.setActive(calculatorDetails.isActive());
+            calculator.setIsActive(calculatorDetails.getIsActive());
             calculator.setUpdatedAt(calculatorDetails.getUpdatedAt());
             return ResponseEntity.ok(calculatorService.saveCalculator(calculator));
         }).orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCalculator(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteCalculator(@PathVariable UUID id) {
         calculatorService.deleteCalculator(id);
         return ResponseEntity.noContent().build();
     }

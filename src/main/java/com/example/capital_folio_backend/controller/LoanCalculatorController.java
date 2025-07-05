@@ -1,8 +1,9 @@
 package com.example.capital_folio_backend.controller;
 
-import com.example.capitalfoliobackend.model.LoanCalculatorRequest;
-import com.example.capitalfoliobackend.model.LoanCalculatorResponse;
-import com.example.capitalfoliobackend.service.LoanCalculator;
+
+import com.example.capital_folio_backend.dto.LoanCalculatorRequest;
+import com.example.capital_folio_backend.dto.LoanCalculatorResponse;
+import com.example.capital_folio_backend.service.LoanCalculator;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

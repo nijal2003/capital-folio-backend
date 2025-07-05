@@ -1,9 +1,9 @@
 package com.example.capital_folio_backend.controller;
 
 
-import com.example.capitalfoliobackend.model.RetirementCalculatorRequest;
-import com.example.capitalfoliobackend.model.RetirementCalculatorResponse;
-import com.example.capitalfoliobackend.service.RetirementCalculator;
+import com.example.capital_folio_backend.dto.RetirementCalculatorRequest;
+import com.example.capital_folio_backend.dto.RetirementCalculatorResponse;
+import com.example.capital_folio_backend.service.RetirementCalculator;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

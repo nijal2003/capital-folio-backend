@@ -1,7 +1,7 @@
-package com.example.capitalfoliobackend.service;
+package com.example.capital_folio_backend.service;
 
-import com.example.capitalfoliobackend.model.Calculator;
-import com.example.capitalfoliobackend.repository.CalculatorRepository;
+import com.example.capital_folio_backend.model.Calculator;
+import com.example.capital_folio_backend.repository.CalculatorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,7 +20,7 @@ public class CalculatorService {
         return calculatorRepository.findAll();
     }
 
-    public Optional<Calculator> getCalculatorById(Long id) {
+    public Optional<Calculator> getCalculatorById(UUID id) {
         return calculatorRepository.findById(id);
     }
 
@@ -28,7 +28,7 @@ public class CalculatorService {
         return calculatorRepository.save(calculator);
     }
 
-    public void deleteCalculator(Long id) {
+    public void deleteCalculator(UUID id) {
         calculatorRepository.deleteById(id);
     }
 }
