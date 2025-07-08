@@ -1,17 +1,23 @@
 package com.example.capital_folio_backend.dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 
 @Data
-@Validated
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoanCalculatorRequest {
-    private double principal;
-    private double rate;
-    private int years;
+@Validated
+public class FieldResponse {
+
+    private String key;
+
+    private String label;
+
+    private String type;
+
+    private Boolean required;
 
 }

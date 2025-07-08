@@ -6,12 +6,12 @@ import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 
 @Data
-@Validated
-@NoArgsConstructor
 @AllArgsConstructor
-public class LoanCalculatorRequest {
-    private double principal;
-    private double rate;
-    private int years;
+@NoArgsConstructor
+@Validated
+public class CalculatorRequest {
 
+    private String type;
+
+    private LoanCalculatorRequest inputs;
 }

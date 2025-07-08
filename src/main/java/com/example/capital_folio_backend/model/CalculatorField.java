@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Map;
 import java.util.UUID;
 
 
@@ -37,11 +38,12 @@ public class CalculatorField {
     @Column(columnDefinition = "TEXT")
     private String defaultValue;
 
-    @Column(columnDefinition = "JSON")
-    private String options;
+    @Column(columnDefinition = "jsonb")
+    @Convert(converter = JsonConverter.class)
+    private Map<String, Object> options;
 
-    @Column(columnDefinition = "JSON")
-    private String validation;
-
+    @Column(columnDefinition = "jsonb")
+    @Convert(converter = JsonConverter.class)
+    private Map<String, Object> validation;
 
    }

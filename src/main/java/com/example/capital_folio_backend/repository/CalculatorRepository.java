@@ -8,4 +8,6 @@ import java.util.UUID;
 
 @Repository
 public interface CalculatorRepository extends JpaRepository<Calculator, UUID> {
+
+    Calculator findByCategory(String category);
 }
